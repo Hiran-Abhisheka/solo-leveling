@@ -5,7 +5,7 @@
     src: url(Eternal.ttf);
 }
 
-*, *::before , *::after {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,7 +16,8 @@ body {
     font-size: 16px;
     line-height: 1.3;
     font-family: 'Bebas Neue', cursive;
-    overflow: hidden;
+    background: #fff;
+    overflow-x: hidden;
 }
 
 .wrapper {
@@ -27,6 +28,7 @@ body {
 }
 
 .logo {
+    font-family: 'eternal';
     font-size: 7rem;
     position: fixed;
     z-index: 10;
@@ -49,7 +51,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
@@ -82,7 +84,7 @@ section.character::before {
 }
 
 .iron::before, .iron .block {
-    background-color: #4a90e2; /* Example: a steel blue color for Iron */
+    background-color: #4a90e2;
 }
 
 .caption {
@@ -144,5 +146,91 @@ section.character::before {
 .quote::before, .quote::after {
     content: '';
     color: #fff;
+}
 
+/* ========== TABLET (portrait & landscape) ========== */
+@media (max-width: 1024px) {
+    .wrapper {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+    .logo {
+        position: static;
+        font-size: 4rem;
+        text-align: center;
+        margin: 2rem 0 1rem 0;
+    }
+    section {
+        width: 100%;
+        height: auto;
+        min-height: 60vh;
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+    section.character::before, .block {
+        display: none;
+    }
+    .character img {
+        height: 40vw;
+        max-height: 60vh;
+        width: auto;
+        max-width: 90vw;
+        margin: 0 auto 1rem auto;
+        display: block;
+        transform: none;
+    }
+    .huge-text {
+        font-size: 6rem;
+        position: static;
+        margin: 1rem 0;
+        transform: none;
+    }
+    .caption, .nickname, .quote {
+        position: static;
+        width: 100%;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        top: auto;
+        transform: none;
+        text-align: center;
+        margin: 1rem 0;
+        font-size: 1.1rem;
+    }
+    .nickname span {
+        font-size: 1em;
+    }
+    .line {
+        height: 0.5rem;
+        width: 80%;
+        margin: 1rem auto;
+        position: static;
+        transform: none;
+    }
+}
+
+/* ========== SMARTPHONES ========== */
+@media (max-width: 600px) {
+    .logo {
+        font-size: 2.2rem;
+        margin: 1.2rem 0 0.5rem 0;
+    }
+    .huge-text {
+        font-size: 2.2rem;
+    }
+    .character img {
+        height: 40vw;
+        max-height: 40vh;
+    }
+    .caption, .nickname, .quote {
+        font-size: 0.95rem;
+    }
+    .line {
+        height: 0.3rem;
+    }
+}
+
+html, body {
+    overflow-x: hidden;
 }

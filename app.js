@@ -1,7 +1,33 @@
 gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener('DOMContentLoaded', () => {
+function setupAnimations() {
+    // Clean up previous animations/triggers
+    ScrollTrigger.getAll().forEach(t => t.kill());
+    gsap.killTweensOf("*");
 
+    const isDesktop = window.matchMedia("(min-width: 1025px)").matches;
+
+    if (!isDesktop) {
+        // Mobile/Tablet: Simple fade-in animation for each character section
+        document.querySelectorAll('.character').forEach(el => {
+            gsap.fromTo(el, {opacity: 0, y: 50}, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 80%",
+                    toggleActions: "play none none none"
+                }
+            });
+        });
+        // Fade in the logo and intro line
+        gsap.fromTo('.logo', {opacity: 0, y: -30}, {opacity: 1, y: 0, duration: 1});
+        gsap.fromTo('.line', {opacity: 0, scaleX: 0.5}, {opacity: 1, scaleX: 1, duration: 1});
+        return;
+    }
+
+    // Desktop/Laptop: Horizontal scroll and pin animations
     const sections = gsap.utils.toArray('section');
 
     let scrollTween = gsap.to(sections, {
@@ -15,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             start: 'top top',
             end: 3000,
         }
-    })
+    });
 
     gsap.to('.logo', {
         fontSize: '1rem',
@@ -26,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             end: 1500,
             scrub: 0.5,
         }
-    })
+    });
 
     gsap.to('.line', {
         height: '10rem',
@@ -36,10 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
             start: 'center center',
             end: 2000,
         }
-    })
+    });
 
     document.querySelectorAll('.character').forEach(el => {
-
         gsap.to(el.querySelector('.caption'), {
             x: 0,
             y: 0,
@@ -50,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: '+=1000',
                 scrub: 0.5,
             }
-        })
+        });
 
         gsap.to(el.querySelector('.quote'), {
             y: 0,
@@ -62,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: '+=20%',
                 scrub: 0.5,
             }
-        })
+        });
 
         gsap.to(el.querySelector('.nickname'), {
             y: 0,
@@ -74,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: '+=10%',
                 scrub: 0.5,
             }
-        })
+        });
 
         gsap.to(el.querySelector('.block'), {
             x: 0,
@@ -86,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: '+=' + window.innerWidth,
                 scrub: 0.5,
             }
-        })
+        });
 
         gsap.to(el.querySelector('img'), {
             y: 0,
@@ -98,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: '+=50%',
                 scrub: 0.5,
             }
-        })
+        });
 
         gsap.to(el.querySelector('.huge-text'), {
             y: 0,
@@ -110,9 +135,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: '+=100%',
                 scrub: 0.5,
             }
-        })
+        });
+    });
+}
 
-    })
-
-
-})
+// Run on load
+document.addEventListener('DOMContentLoaded', setupAnimations);
+// Re-run on resize/orientation change
+window.addEventListener('resize', () => {
+    clearTimeout(window._gsapResizeTimeout);
+    window._gsapResizeTimeout = setTimeout(setupAnimations, 200);
+});
