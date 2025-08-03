@@ -8,6 +8,10 @@
   A stylish and responsive web gallery featuring characters from the Solo Leveling universe. Built with HTML, CSS, and JavaScript, this project is perfect for fans and as a front-end portfolio example.
 </p>
 
+<p align="center">
+  <a href="https://hiran-abhisheka.github.io/solo-leveling/" target="_blank"><strong>🌐 Live Preview</strong></a>
+</p>
+
 <h2>Features</h2>
 <ul>
   <li><strong>Character Gallery:</strong> Showcases Igris, Iron, and Sung Jin-Woo with high-quality images.</li>
