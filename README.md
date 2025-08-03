@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://pngdownload.io/png-image/solo-leveling-logo-anime-manga-popular-series-transparent-png-image/" alt="Solo Leveling Logo" width="300"/>
+  <img src="https://pngdownload.io/wp-content/uploads/2024/01/Solo-Leveling-Logo-anime-manga-popular-series-transparent-PNG-image-jpg.webp" alt="Solo Leveling Logo" width="300"/>
 </p>
 
 <h1>Solo Leveling Character Gallery</h1>
