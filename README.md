@@ -36,7 +36,7 @@
 <h2>Getting Started</h2>
 <ol>
   <li><strong>Clone the repository:</strong>
-    <pre>git clone https://github.com/your-username/solo-leveling.git</pre>
+    <pre>git clone https://github.com/Hiran-Abhisheka/solo-leveling.git</pre>
   </li>
   <li><strong>Navigate to the project folder:</strong>
     <pre>cd solo-leveling</pre>
