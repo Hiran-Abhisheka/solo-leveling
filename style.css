@@ -27,7 +27,7 @@ body {
 }
 
 .logo {
-    font-size: 8rem;
+    font-size: 7rem;
     position: fixed;
     z-index: 10;
     top: 15%;
@@ -144,4 +144,5 @@ section.character::before {
 .quote::before, .quote::after {
     content: '';
     color: #fff;
+
 }
