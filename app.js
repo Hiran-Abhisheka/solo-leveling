@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     gsap.to('.logo', {
-        fontSize: '2.5rem',
+        fontSize: '1rem',
         top: '4rem',
         scrollTrigger: {
             trigger: '.logo',
@@ -113,5 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
 
     })
+
 
 })
